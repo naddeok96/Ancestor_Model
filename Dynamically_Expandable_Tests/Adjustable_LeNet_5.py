@@ -15,7 +15,7 @@ class AdjLeNet(nn.Module):
                        num_kernels_layer2 = 16, 
                        num_kernels_layer3 = 120):
 
-        super(DLeNet,self).__init__()
+        super(AdjLeNet,self).__init__()
         
         self.num_classes = num_classes
 

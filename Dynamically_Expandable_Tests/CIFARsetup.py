@@ -16,7 +16,7 @@ class CIFAR10_Setup:
                       n_val_samples = 10000,
                       n_test_samples = 10000):
         
-        super(training,self).__init__()
+        super(CIFAR10_Setup,self).__init__()
 
         self.net = net 
         self.n_train_samples = n_train_samples
