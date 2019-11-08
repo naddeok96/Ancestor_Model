@@ -32,8 +32,7 @@ class DynaNet:
                             num_kernels_layer3 = self.num_kernels_layer3)
         summary(self.net, input_size=(3, 32, 32))
 
-        #self.train()
-        print("Training omitted")
+        self.train()
 
     def train(self):
         # These will load the CIFAR-10 dataset and train the LeNets 
