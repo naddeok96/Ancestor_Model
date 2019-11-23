@@ -9,10 +9,10 @@ from Dynamic_Network import DynaNet
 
 
 # Train base line network (starting at max size)
-base_net = DynaNet(n_epochs= 10,
+base_net = DynaNet(n_epochs= 1,
                    num_kernels_layer2 = 18)
 
-
+'''
 # Train dynamic network
 dyna_net = DynaNet(n_epochs=10,
                    num_kernels_layer1 = 2,
@@ -44,6 +44,7 @@ print("-------------------------------")
 print("Validation Loss:     ", dyna_net.val_loss)
 print("Validation Accuracy: ",dyna_net.val_acc)
 print("===============================")
+'''
 
 
 
