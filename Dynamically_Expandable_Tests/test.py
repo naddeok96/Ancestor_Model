@@ -7,7 +7,8 @@ import numpy as np
 import torch
 from Dynamic_Network import DynaNet
 
-import osos.environ["CUDA_DEVICE_ORDER"] = "PCI_BUS_ID"
+import os
+os.environ["CUDA_DEVICE_ORDER"] = "PCI_BUS_ID"
 # For a single device (GPU 5)
 os.environ["CUDA_VISIBLE_DEVICES"] = "2"
 
