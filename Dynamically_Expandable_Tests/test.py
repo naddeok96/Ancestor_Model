@@ -10,7 +10,8 @@ from Dynamic_Network import DynaNet
 
 # Train base line network (starting at max size)
 base_net = DynaNet(n_epochs= 1,
-                   num_kernels_layer2 = 18)
+                   num_kernels_layer2 = 18,
+                   batch_size = 64)
 
 '''
 # Train dynamic network
