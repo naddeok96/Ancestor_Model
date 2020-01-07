@@ -32,7 +32,8 @@ base_net = DynaNet(n_epochs= n_epochs,
 dyna_net = DynaNet(n_epochs= n_epochs,
                    num_kernels_layer1 = 2,
                    num_kernels_layer2 = 6,
-                   num_kernels_layer3 = 40)
+                   num_kernels_layer3 = 40,
+                   learning_rate = 0.005)
 
 for i in range(6):
 
