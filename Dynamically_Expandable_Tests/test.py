@@ -15,11 +15,11 @@ start_time = time.time()
 # GPU Setup
 os.environ["CUDA_DEVICE_ORDER"] = "PCI_BUS_ID"
 # For a single device (GPU 2)
-os.environ["CUDA_VISIBLE_DEVICES"] = "0, 1"
+os.environ["CUDA_VISIBLE_DEVICES"] = "0"
 
 # Hyperparameters
-n_epochs = 15
-batch_size = 32
+n_epochs = 200
+batch_size = 128
 learning_rate = 0.01
 print('Number of Epochs: ', n_epochs, 
       '\nBatch Size: ', batch_size,

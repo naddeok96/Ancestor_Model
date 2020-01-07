@@ -65,7 +65,7 @@ class CIFAR10_Setup:
     # Define our loss function and optimazation to use
     def createLossAndOptimizer(self,net, lr=0.01):
         loss = torch.nn.CrossEntropyLoss()
-        optimzer = torch.optim.SGD(net.parameters(), lr=lr, momentum= 0.9)     
+        optimzer = torch.optim.SGD(net.parameters(), lr=lr, momentum= 0.9, weight_decay=0.0001)     
 
         return(loss,optimzer)
 
