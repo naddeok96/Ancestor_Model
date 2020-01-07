@@ -19,9 +19,9 @@ class CIFAR10_Setup:
         super(CIFAR10_Setup,self).__init__()
 
         self.net = net.cuda()
-        self.n_train_samples = n_train_samples.cuda()
-        self.n_val_samples = n_val_samples.cuda()
-        self.n_test_samples = n_test_samples.cuda()
+        self.n_train_samples = n_train_samples
+        self.n_val_samples = n_val_samples
+        self.n_test_samples = n_test_samples
 
 
         # Pull in data
