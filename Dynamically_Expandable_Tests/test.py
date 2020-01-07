@@ -7,19 +7,23 @@ import numpy as np
 import torch
 from Dynamic_Network import DynaNet
 
+# GPU Setup
 import os
 os.environ["CUDA_DEVICE_ORDER"] = "PCI_BUS_ID"
 # For a single device (GPU 2)
 os.environ["CUDA_VISIBLE_DEVICES"] = "2"
 
+# Hyperparameters
+n_epochs = 10
+
 # Train base line network (starting at max size)
-base_net = DynaNet(n_epochs= 1,
+base_net = DynaNet(n_epochs= n_epochs,
                    num_kernels_layer2 = 18,
                    batch_size = 64)
 
 '''
 # Train dynamic network
-dyna_net = DynaNet(n_epochs=10,
+dyna_net = DynaNet(n_epochs= n_epochs,
                    num_kernels_layer1 = 2,
                    num_kernels_layer2 = 6,
                    num_kernels_layer3 = 40)
