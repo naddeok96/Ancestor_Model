@@ -18,7 +18,7 @@ os.environ["CUDA_DEVICE_ORDER"] = "PCI_BUS_ID"
 os.environ["CUDA_VISIBLE_DEVICES"] = "0, 1"
 
 # Hyperparameters
-n_epochs = 1
+n_epochs = 15
 
 # Train base line network (starting at max size)
 base_net = DynaNet(n_epochs= n_epochs,
