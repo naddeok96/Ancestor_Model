@@ -19,8 +19,8 @@ os.environ["CUDA_VISIBLE_DEVICES"] = "0, 1"
 
 # Hyperparameters
 n_epochs = 100
-batch_size = 128
-learning_rate = 0.001
+batch_size = 32
+learning_rate = 0.01
 print('Number of Epochs: ', n_epochs, 
       '\nBatch Size: ', batch_size,
       '\nLearning Rate: ', learning_rate)
