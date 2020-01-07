@@ -95,7 +95,8 @@ class CIFAR10_Setup:
                 
                 #Reset the train loader and apply a counter
                 inputs, labels = data
-
+                inputs, labels = inputs.cuda(), labels.cuda()
+                
                 #Set the parameter gradients to zero
                 optimizer.zero_grad()
                 
