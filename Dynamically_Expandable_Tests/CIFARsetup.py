@@ -95,6 +95,8 @@ class CIFAR10_Setup:
                 
                 #Reset the train loader and apply a counter
                 inputs, labels = data
+
+                # Push input to gpus
                 inputs, labels = inputs.cuda(), labels.cuda()
 
                 #Set the parameter gradients to zero
@@ -121,13 +123,16 @@ class CIFAR10_Setup:
             total_val_loss = 0
             for inputs, labels in self.val_loader:
                 
+                # Push input to gpu
+                inputs, labels = inputs.cuda(), labels.cuda()
+
                 #Forward pass
-                val_outputs = self.net(inputs.cuda())
+                val_outputs = self.net(inputs)
 
                 val_soft_outputs = F.softmax(val_outputs, dim=1)
                 predicted = torch.max(val_soft_outputs, dim = 1)[1]
                 
-                val_acc = torch.sum(torch.eq(predicted, labels.cuda())).item()/predicted.nelement()
+                val_acc = torch.sum(torch.eq(predicted, labels)).item()/predicted.nelement()
                 val_loss_size = loss(val_outputs, labels)
                 total_val_loss += val_loss_size.item()
             
