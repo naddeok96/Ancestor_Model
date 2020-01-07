@@ -19,7 +19,7 @@ n_epochs = 10
 # Train base line network (starting at max size)
 base_net = DynaNet(n_epochs= n_epochs,
                    num_kernels_layer2 = 18,
-                   batch_size = 64)
+                   batch_size = 32)
 
 '''
 # Train dynamic network

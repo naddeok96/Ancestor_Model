@@ -13,7 +13,7 @@ class DynaNet:
                        num_kernels_layer3 = 120,
                        batch_size = 128,
                        n_epochs = 10,
-                       learning_rate = 0.1):
+                       learning_rate = 0.01):
 
         super(DynaNet,self).__init__()
 
