@@ -127,7 +127,7 @@ class CIFAR10_Setup:
                 val_soft_outputs = F.softmax(val_outputs, dim=1)
                 predicted = torch.max(val_soft_outputs, dim = 1)[1]
                 
-                val_acc = torch.sum(torch.eq(predicted, labels)).item()/predicted.nelement()
+                val_acc = torch.sum(torch.eq(predicted, labels.cuda())).item()/predicted.nelement()
                 val_loss_size = loss(val_outputs, labels)
                 total_val_loss += val_loss_size.item()
             
