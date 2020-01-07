@@ -18,14 +18,16 @@ os.environ["CUDA_DEVICE_ORDER"] = "PCI_BUS_ID"
 os.environ["CUDA_VISIBLE_DEVICES"] = "0, 1"
 
 # Hyperparameters
-n_epochs = 15
+n_epochs = 100
+batch_size = 128
+learning_rate = 0.001
 print('Number of Epochs: ', n_epochs)
 
 # Train base line network (starting at max size)
 base_net = DynaNet(n_epochs= n_epochs,
                    num_kernels_layer2 = 18,
-                   batch_size = 32,
-                   learning_rate = 0.005)
+                   batch_size = batch_size,
+                   learning_rate = learning_rate)
 
 
 # Train dynamic network
@@ -33,8 +35,8 @@ dyna_net = DynaNet(n_epochs= n_epochs,
                    num_kernels_layer1 = 2,
                    num_kernels_layer2 = 6,
                    num_kernels_layer3 = 40,
-                   batch_size = 32,
-                   learning_rate = 0.005)
+                   batch_size = batch_size,
+                   learning_rate = learning_rate)
 
 for i in range(6):
 
