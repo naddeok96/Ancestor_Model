@@ -21,7 +21,9 @@ os.environ["CUDA_VISIBLE_DEVICES"] = "0, 1"
 n_epochs = 100
 batch_size = 128
 learning_rate = 0.001
-print('Number of Epochs: ', n_epochs)
+print('Number of Epochs: ', n_epochs, 
+      '\nBatch Size: ', batch_size,
+      '\nLearning Rate: ', learning_rate)
 
 # Train base line network (starting at max size)
 base_net = DynaNet(n_epochs= n_epochs,
