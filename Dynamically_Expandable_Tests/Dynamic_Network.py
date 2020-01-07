@@ -31,7 +31,7 @@ class DynaNet:
                             num_kernels_layer2 = self.num_kernels_layer2,
                             num_kernels_layer3 = self.num_kernels_layer3)
 
-        summary(self.net, input_size=(3, 32, 32)) # Summarize the model
+        summary(self.net, input_size=(3, 32, 32), device="cpu") # Summarize the model
 
         #self.train()
 
