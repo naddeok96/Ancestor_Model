@@ -18,7 +18,7 @@ os.environ["CUDA_DEVICE_ORDER"] = "PCI_BUS_ID"
 os.environ["CUDA_VISIBLE_DEVICES"] = "0, 1"
 
 # Hyperparameters
-n_epochs = 1
+n_epochs = 15
 print('Number of Epochs: ', n_epochs)
 
 # Train base line network (starting at max size)
@@ -50,7 +50,7 @@ for i in range(6):
         dyna_net.expand(added_kernels_layer1 = 2)
         dyna_net.train()
 
-print("===============================")
+print("\n===============================")
 print("Baseline Results ")
 print("-------------------------------")
 print("Validation Loss:     ", base_net.val_loss)
