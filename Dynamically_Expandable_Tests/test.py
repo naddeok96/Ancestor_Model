@@ -6,15 +6,19 @@ This script is just used for testing code blocks
 import numpy as np
 import torch
 from Dynamic_Network import DynaNet
+import time
+import os
+
+# Track run time
+start_time = time.time()
 
 # GPU Setup
-import os
 os.environ["CUDA_DEVICE_ORDER"] = "PCI_BUS_ID"
 # For a single device (GPU 2)
 os.environ["CUDA_VISIBLE_DEVICES"] = "2"
 
 # Hyperparameters
-n_epochs = 10
+n_epochs = 4
 
 # Train base line network (starting at max size)
 base_net = DynaNet(n_epochs= n_epochs,
@@ -54,6 +58,6 @@ print("Validation Loss:     ", dyna_net.val_loss)
 print("Validation Accuracy: ",dyna_net.val_acc)
 print("===============================")
 '''
-
+print("--- %s seconds ---" % (time.time() - start_time))
 
 
