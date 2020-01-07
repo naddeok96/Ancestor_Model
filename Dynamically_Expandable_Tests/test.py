@@ -18,7 +18,7 @@ os.environ["CUDA_DEVICE_ORDER"] = "PCI_BUS_ID"
 os.environ["CUDA_VISIBLE_DEVICES"] = "0, 1"
 
 # Hyperparameters
-n_epochs = 15
+n_epochs = 1
 print('Number of Epochs: ', n_epochs)
 
 # Train base line network (starting at max size)
@@ -27,7 +27,7 @@ base_net = DynaNet(n_epochs= n_epochs,
                    batch_size = 32,
                    learning_rate = 0.005)
 
-'''
+
 # Train dynamic network
 dyna_net = DynaNet(n_epochs= n_epochs,
                    num_kernels_layer1 = 2,
@@ -59,7 +59,7 @@ print("-------------------------------")
 print("Validation Loss:     ", dyna_net.val_loss)
 print("Validation Accuracy: ",dyna_net.val_acc)
 print("===============================")
-'''
-print("--- %s seconds ---" % (time.time() - start_time))
+
+print("--- The experiemtn took %s seconds to run ---" % (time.time() - start_time))
 
 
