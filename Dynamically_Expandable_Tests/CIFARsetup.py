@@ -96,7 +96,7 @@ class CIFAR10_Setup:
                 #Reset the train loader and apply a counter
                 inputs, labels = data
                 inputs, labels = inputs.cuda(), labels.cuda()
-                
+
                 #Set the parameter gradients to zero
                 optimizer.zero_grad()
                 
@@ -122,7 +122,7 @@ class CIFAR10_Setup:
             for inputs, labels in self.val_loader:
                 
                 #Forward pass
-                val_outputs = self.net(inputs)
+                val_outputs = self.net(inputs.cuda())
 
                 val_soft_outputs = F.softmax(val_outputs, dim=1)
                 predicted = torch.max(val_soft_outputs, dim = 1)[1]
