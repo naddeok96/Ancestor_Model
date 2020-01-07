@@ -69,7 +69,7 @@ class DynaNet:
             self.num_kernels_layer3 = self.num_kernels_layer3 + added_kernels_layer3
 
         print("\n\nExpanded Model Dimensions:")
-        summary(self.net, input_size=(3, 32, 32))
+        summary(self.net, input_size=(3, 32, 32), device= "cpu")
 
 
 
