@@ -31,7 +31,9 @@ class DynaNet:
                             num_kernels_layer2 = self.num_kernels_layer2,
                             num_kernels_layer3 = self.num_kernels_layer3)
 
-        summary(self.net, input_size=(3, 32, 32))
+        self.net.cuda() # push model to GPU
+
+        summary(self.net, input_size=(3, 32, 32)) # Summarize the model
 
         self.train()
 
