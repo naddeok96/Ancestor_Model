@@ -11,7 +11,7 @@ import os
 os.environ["CUDA_DEVICE_ORDER"] = "PCI_BUS_ID"
 # For a single device (GPU 2)
 os.environ["CUDA_VISIBLE_DEVICES"] = "2"
-print(torch.cuda.device_count())
+print(torch.cuda.is_available())
 
 # Train base line network (starting at max size)
 base_net = DynaNet(n_epochs= 1,
