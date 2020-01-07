@@ -33,7 +33,7 @@ class DynaNet:
 
         summary(self.net, input_size=(3, 32, 32), device="cpu") # Summarize the model
 
-        #self.train()
+        self.train()
 
     def train(self):
         # These will load the CIFAR-10 dataset and train the LeNets 
