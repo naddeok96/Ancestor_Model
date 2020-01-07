@@ -46,9 +46,9 @@ class DynaNet:
         print("Validation Accuracy:", self.val_acc)
         print("----------------------------------------------------------------")
 
-    def expand(self, added_kernels_layer1,
-                     added_kernels_layer2,
-                     added_kernels_layer3):
+    def expand(self, added_kernels_layer1 = 0,
+                     added_kernels_layer2 = 0,
+                     added_kernels_layer3 = 0):
         
         old_net = self.net
 
