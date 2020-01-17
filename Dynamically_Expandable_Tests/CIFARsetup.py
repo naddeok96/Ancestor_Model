@@ -119,7 +119,7 @@ class CIFAR10_Setup:
 
                 
                 for name, param in self.net.named_parameters():
-                    print(name)
+                    print(self.net.name.grad)
 
                 '''
                 print(self.net.conv1.weight.grad)
