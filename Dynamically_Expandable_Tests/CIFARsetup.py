@@ -112,8 +112,13 @@ class CIFAR10_Setup:
 
                 loss_size = loss(outputs, labels) # calculate loss
                 loss_size.backward() # Find the gradient for each parameter
+
+                '''
                 for name, param in self.net.named_parameters():
                     print(name, param.grad)
+                '''
+
+                print(self.net.conv1.grad)
 
                 print("Stop Here \n")
                 exit()
