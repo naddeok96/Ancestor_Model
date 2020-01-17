@@ -120,8 +120,7 @@ class CIFAR10_Setup:
 
                 
                 for name, param in self.net.named_parameters():
-                    name_layer = name + '.grad'
-                    print(operator.attrgetter(name_layer)(self.net))
+                    print(name, operator.attrgetter(name + '.grad')(self.net))
 
                 '''
                 print(self.net.conv1.weight.grad)
