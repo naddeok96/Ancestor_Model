@@ -119,11 +119,11 @@ class CIFAR10_Setup:
 
                 
                 for name, param in self.net.named_parameters():
-                    print(self.net.name.grad)
+                    print(self.net.[name].grad)
 
                 '''
                 print(self.net.conv1.weight.grad)
-                self.net.freeze_name.weight.grad[freeze_param, :, :] = 0
+                self.net.['freeze_name'].weight.grad[freeze_param, :, :] = 0
                 print(self.net.conv1.weight.grad)
                 '''
                 
