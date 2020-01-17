@@ -70,7 +70,7 @@ class CIFAR10_Setup:
         return(loss,optimzer) 
 
     # Function to train the network     
-    def fit_model(self, batch_size, n_epochs, learning_rate, freeze_name = 'conv1', freeze_param = [0:1]):
+    def fit_model(self, batch_size, n_epochs, learning_rate, freeze_name = 'conv1', freeze_param = '[0:1]'):
         
         #Get training data
         self.train_loader = self.get_train_loader(batch_size)
