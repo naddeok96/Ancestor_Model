@@ -37,7 +37,7 @@ class DynaNet:
 
         self.train()
 
-    def train(self, freeze_name = 'conv1.weight', freeze_param = range(2)):
+    def train(self, freeze_name = 'conv1.weight', freeze_param = range(0)):
         # These will train the LeNets 
         print("\n\nCIFAR-10 Training:")
         print("----------------------------------------------------------------")
