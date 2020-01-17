@@ -8,6 +8,7 @@ from torchsummary import summary
 import torchvision.transforms as transforms
 from torch.utils.data.sampler import SubsetRandomSampler
 import time
+import operator
 
 class CIFAR10_Setup:
 
@@ -120,8 +121,7 @@ class CIFAR10_Setup:
                 
                 for name, param in self.net.named_parameters():
                     name_layer = name + '.grad'
-                    # print(getattr(self.net.conv1.weight, 'grad'))
-                    print(getattr(self.net.conv1, 'weight'))
+                    print(operator.attrgetter(name_layer)(self.net))
 
                 '''
                 print(self.net.conv1.weight.grad)
