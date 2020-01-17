@@ -41,7 +41,7 @@ class DynaNet:
         # These will train the LeNets 
         print("\n\nCIFAR-10 Training:")
         print("----------------------------------------------------------------")
-        self.val_loss, self.val_acc = data.fit_model(batch_size = self.batch_size,
+        self.val_loss, self.val_acc = self.data.fit_model(batch_size = self.batch_size,
                                                      n_epochs = self.n_epochs,
                                                      learning_rate= self.learning_rate)
         print("\nValidation Loss:    ",self.val_loss)
