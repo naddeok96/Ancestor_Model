@@ -119,6 +119,8 @@ class CIFAR10_Setup:
                 '''
 
                 print(self.net.conv1.weight.grad)
+                self.net.conv1.weight.grad = 0
+                print(self.net.conv1.weight.grad)
 
                 print("Stop Here \n")
                 exit()
