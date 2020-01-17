@@ -112,6 +112,7 @@ class CIFAR10_Setup:
 
                 loss_size = loss(outputs, labels) # calculate loss
                 loss_size.backward() # Find the gradient for each parameter
+                print("parameters: \n", loss_size.parameters())
                 optimizer.step() # Parameter update
                 
                 #Print statistics

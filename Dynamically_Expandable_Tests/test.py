@@ -66,6 +66,6 @@ print("Validation Loss:     ", dyna_net.val_loss)
 print("Validation Accuracy: ",dyna_net.val_acc)
 print("===============================")
 
-print("--- The experiemtn took %s seconds to run ---" % (time.time() - start_time))
+print("--- The experiment took %s seconds to run ---" % (time.time() - start_time))
 
 
