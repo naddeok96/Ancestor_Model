@@ -33,15 +33,17 @@ class DynaNet:
 
         summary(self.net, input_size=(3, 32, 32), device="cpu") # Summarize the model
 
+        self.data = CIFAR10_Setup(self.net)
+
         self.train()
 
     def train(self):
-        # These will load the CIFAR-10 dataset and train the LeNets 
+        # These will train the LeNets 
         print("\n\nCIFAR-10 Training:")
         print("----------------------------------------------------------------")
-        self.val_loss, self.val_acc = CIFAR10_Setup(self.net).train(batch_size = self.batch_size,
-                                                                    n_epochs = self.n_epochs,
-                                                                    learning_rate= self.learning_rate)
+        self.val_loss, self.val_acc = data.fit_model(batch_size = self.batch_size,
+                                                     n_epochs = self.n_epochs,
+                                                     learning_rate= self.learning_rate)
         print("\nValidation Loss:    ",self.val_loss)
         print("Validation Accuracy:", self.val_acc)
         print("----------------------------------------------------------------")
