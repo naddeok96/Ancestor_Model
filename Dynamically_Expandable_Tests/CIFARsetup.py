@@ -67,7 +67,7 @@ class CIFAR10_Setup:
         loss = torch.nn.CrossEntropyLoss()
         optimzer = torch.optim.SGD(net.parameters(), lr=lr, momentum= 0.9, weight_decay=0.0001)     
 
-        return(loss,optimzer)
+        return(loss,optimzer) 
 
     # Function to train the network     
     def fit_model(self, batch_size, n_epochs, learning_rate, freeze_name = 'conv1', freeze_param = [0:1]):
@@ -120,12 +120,13 @@ class CIFAR10_Setup:
                 '''
                 for name, param in self.net.named_parameters():
                     print(name, param.grad)
-                '''
 
+                
                 print(self.net.conv1.weight.grad)
                 self.net.freeze_name.weight.grad[freeze_param, :, :] = 0
                 print(self.net.conv1.weight.grad)
-
+                '''
+                print(self.net.named_parameters())
                 print("Stop Here \n")
                 exit()
                 optimizer.step() # Parameter update
