@@ -119,8 +119,9 @@ class CIFAR10_Setup:
 
                 
                 for name, param in self.net.named_parameters():
-                    gradients = getattr(self.net, name + '.grad')
-                    print(name, gradients())
+                    name_layer = name + '.grad'
+                    gradients = getattr(self.net, name_layer)
+                    print(name, gradients)
 
                 '''
                 print(self.net.conv1.weight.grad)
