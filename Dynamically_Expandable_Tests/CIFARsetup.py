@@ -120,7 +120,7 @@ class CIFAR10_Setup:
 
                 print(self.net.conv1.weight.grad)
                 self.net.conv1.weight.grad[0:2, :, :] = 0
-                print(np.size(self.net.conv1.weight.grad))
+                print(self.net.conv1.weight.grad)
 
                 print("Stop Here \n")
                 exit()
