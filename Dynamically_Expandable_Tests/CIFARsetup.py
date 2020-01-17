@@ -118,7 +118,7 @@ class CIFAR10_Setup:
                     print(name, param.grad)
                 '''
 
-                print(self.net.conv1.parameters())
+                print(self.net.conv1.parameters.gtad)
 
                 print("Stop Here \n")
                 exit()
