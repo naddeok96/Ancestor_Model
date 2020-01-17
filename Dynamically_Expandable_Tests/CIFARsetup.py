@@ -112,21 +112,21 @@ class CIFAR10_Setup:
 
                 loss_size = loss(outputs, labels) # calculate loss
 
-                print(self.net.conv1.weight.grad)
+                
 
 
                 loss_size.backward() # Find the gradient for each parameter
 
-                '''
-                for name, param in self.net.named_parameters():
-                    print(name, param.grad)
-
                 
+                for name, param in self.net.named_parameters():
+                    print(name)
+
+                '''
                 print(self.net.conv1.weight.grad)
                 self.net.freeze_name.weight.grad[freeze_param, :, :] = 0
                 print(self.net.conv1.weight.grad)
                 '''
-                print(self.net.named_parameters())
+                
                 print("Stop Here \n")
                 exit()
                 optimizer.step() # Parameter update
