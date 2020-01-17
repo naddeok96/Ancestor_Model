@@ -44,15 +44,12 @@ for i in range(6):
 
     if i in [0,1]:
         dyna_net.expand(added_kernels_layer3 = 40)
-        dyna_net.train()
 
     if i in [2,3]:
         dyna_net.expand(added_kernels_layer2 = 6)
-        dyna_net.train()
 
     if i in [4,5]:
         dyna_net.expand(added_kernels_layer1 = 2)
-        dyna_net.train()
 
 print("\n===============================")
 print("Baseline Results ")

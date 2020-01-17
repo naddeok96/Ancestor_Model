@@ -37,13 +37,15 @@ class DynaNet:
 
         self.train()
 
-    def train(self):
+    def train(self, freeze_name = 'conv1', freeze_param = [0:1]):
         # These will train the LeNets 
         print("\n\nCIFAR-10 Training:")
         print("----------------------------------------------------------------")
         self.val_loss, self.val_acc = self.data.fit_model(batch_size = self.batch_size,
-                                                     n_epochs = self.n_epochs,
-                                                     learning_rate= self.learning_rate)
+                                                          n_epochs = self.n_epochs,
+                                                          learning_rate= self.learning_rate,
+                                                          freeze_name = freeze_name,
+                                                          freeze_param = freeze_param)
         print("\nValidation Loss:    ",self.val_loss)
         print("Validation Accuracy:", self.val_acc)
         print("----------------------------------------------------------------")
@@ -61,6 +63,7 @@ class DynaNet:
         if added_kernels_layer1 != 0:
             self.net.conv1.weight.data[0:self.num_kernels_layer1, :, :] = old_net.conv1.weight.data
             self.num_kernels_layer1 = self.num_kernels_layer1 + added_kernels_layer1
+        
 
         if added_kernels_layer2 != 0:
             self.net.conv2.weight.data[0:self.num_kernels_layer2, :, :] = old_net.conv2.weight.data
@@ -69,6 +72,8 @@ class DynaNet:
         if added_kernels_layer3 != 0:
             self.net.conv3.weight.data[0:self.num_kernels_layer3, :, :] = old_net.conv3.weight.data
             self.num_kernels_layer3 = self.num_kernels_layer3 + added_kernels_layer3
+
+        self.train()
 
         print("\n\nExpanded Model Dimensions:")
         summary(self.net, input_size=(3, 32, 32), device= "cpu")
