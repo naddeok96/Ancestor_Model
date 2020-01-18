@@ -81,7 +81,7 @@ class DynaNet:
             freeze_param.append(range(self.num_kernels_layer3))
             self.num_kernels_layer3 = self.num_kernels_layer3 + added_kernels_layer3
             
-        
+        self.data.net = self.net.cuda()
         self.train(freeze_name = freeze_name, freeze_param = freeze_param)
 
         print("\n\nExpanded Model Dimensions:")
