@@ -25,13 +25,13 @@ print('Number of Epochs: ', n_epochs,
       '\nBatch Size: ', batch_size,
       '\nLearning Rate: ', learning_rate)
 
-'''
+
 # Train base line network (starting at max size)
 base_net = DynaNet(n_epochs= n_epochs,
                    num_kernels_layer2 = 18,
                    batch_size = batch_size,
                    learning_rate = learning_rate)
-'''
+
 
 # Train dynamic network
 dyna_net = DynaNet(n_epochs= n_epochs,
