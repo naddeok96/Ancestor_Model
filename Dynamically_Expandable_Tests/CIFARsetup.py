@@ -120,12 +120,11 @@ class CIFAR10_Setup:
 
                 
                 for name, params in zip(freeze_name, freeze_param):
-                    print(name, params)
-                    '''
+                    print(operator.attrgetter(name + '.grad')(self.net).detach().numpy().shape)
                     print(params, name +  ' before:', operator.attrgetter(name + '.grad')(self.net))
                     operator.attrgetter(name + '.grad')(self.net)[params, :, :] = 0
                     print(params, name +  ' after:', operator.attrgetter(name + '.grad')(self.net)) 
-                    '''
+                    
                 
                 '''
                 print(operator.attrgetter(freeze_name + '.grad')(self.net))
