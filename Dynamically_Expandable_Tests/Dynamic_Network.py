@@ -13,7 +13,8 @@ class DynaNet:
                        num_kernels_layer3 = 120,
                        batch_size = 128,
                        n_epochs = 10,
-                       learning_rate = 0.01):
+                       learning_rate = 0.01,
+                       freeze_train_ratio = 0.5):
 
         super(DynaNet,self).__init__()
 
@@ -24,6 +25,7 @@ class DynaNet:
         self.batch_size = batch_size
         self.n_epochs = n_epochs
         self.learning_rate = learning_rate
+        self.freeze_train_ratio = freeze_train_ratio
 
         print("\nModel Setup:  ")
         self.net = AdjLeNet(num_classes= self.num_classes,
@@ -37,12 +39,12 @@ class DynaNet:
 
         self.train()
 
-    def train(self, freeze_name = [], freeze_param = []):
+    def train(self, n_epochs = self.n_epochs, freeze_name = [], freeze_param = []):
         # These will train the LeNets 
         print("\n\nCIFAR-10 Training:")
         print("----------------------------------------------------------------")
         self.val_loss, self.val_acc = self.data.fit_model(batch_size = self.batch_size,
-                                                          n_epochs = self.n_epochs,
+                                                          n_epochs = n_epochs,
                                                           learning_rate= self.learning_rate,
                                                           freeze_name = freeze_name,
                                                           freeze_param = freeze_param)
@@ -82,7 +84,11 @@ class DynaNet:
             self.num_kernels_layer3 = self.num_kernels_layer3 + added_kernels_layer3
             
         self.data.net = self.net.cuda()
-        self.train(freeze_name = freeze_name, freeze_param = freeze_param)
+        self.train(freeze_name = freeze_name, freeze_param = freeze_param, n_epochs = floor(self.n_epochs*self.freeze_train_ratio))
+        self.train(freeze_name = [], freeze_param = [], n_epochs = ceil(self.n_epochs*self.freeze_train_ratio))
+
+
+
 
         print("\n\nExpanded Model Dimensions:")
         summary(self.net.cpu(), input_size=(3, 32, 32), device= "cpu")
