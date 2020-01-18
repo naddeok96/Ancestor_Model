@@ -112,25 +112,10 @@ class CIFAR10_Setup:
 
 
                 loss_size = loss(outputs, labels) # calculate loss
-
-                
-
-
                 loss_size.backward() # Find the gradient for each parameter
 
-                
                 for name, params in zip(freeze_name, freeze_param):
-                    print(operator.attrgetter(name + '.grad')(self.net).cpu().detach().numpy().shape)
-                    print(params, name +  ' before:', operator.attrgetter(name + '.grad')(self.net))
-                    operator.attrgetter(name + '.grad')(self.net)[params, :, :] = 0
-                    print(params, name +  ' after:', operator.attrgetter(name + '.grad')(self.net)) 
-                    
-                
-                '''
-                print(operator.attrgetter(freeze_name + '.grad')(self.net))
-                operator.attrgetter(freeze_name + '.grad')(self.net)[freeze_param, :, :] = 0
-                print(operator.attrgetter(freeze_name + '.grad')(self.net))
-                '''
+                    operator.attrgetter(name + '.grad')(self.net)[params, :, :] = 0 
 
                 optimizer.step() # Parameter update
                 
