@@ -115,15 +115,15 @@ class CIFAR10_Setup:
                 loss_size.backward() # Find the gradient for each parameter
 
                 for name, params in self.net.named_parameters():
-                    print(name, params)
-                    
+                    print(name, operator.attrgetter(name + '.grad')(self.net))
+
                 for name, params in zip(freeze_name, freeze_param):
                     new_grads = operator.attrgetter(name + '.grad')(self.net)[params, :, :]
                     optimizer.zero_grad()
                     operator.attrgetter(name + '.grad')(self.net)[params, :, :] = new_grads
 
                 for name, params in self.net.named_parameters():
-                    print(name, params)
+                    print(name, operator.attrgetter(name + '.grad')(self.net))
 
                 optimizer.step() # Parameter update
                 
