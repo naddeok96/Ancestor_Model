@@ -114,8 +114,16 @@ class CIFAR10_Setup:
                 loss_size = loss(outputs, labels) # calculate loss
                 loss_size.backward() # Find the gradient for each parameter
 
+                for name, params in self.net.named_parameters():
+                    print(name, params)
+                    
                 for name, params in zip(freeze_name, freeze_param):
-                    operator.attrgetter(name + '.grad')(self.net)[params, :, :] = 0 
+                    new_grads = operator.attrgetter(name + '.grad')(self.net)[params, :, :]
+                    optimizer.zero_grad()
+                    operator.attrgetter(name + '.grad')(self.net)[params, :, :] = new_grads
+
+                for name, params in self.net.named_parameters():
+                    print(name, params)
 
                 optimizer.step() # Parameter update
                 

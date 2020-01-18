@@ -65,20 +65,20 @@ class DynaNet:
         if added_kernels_layer1 != 0:
             self.net.conv1.weight.data[0:self.num_kernels_layer1, :, :] = old_net.conv1.weight.data
             freeze_name.append('conv1.weight')
-            freeze_param.append(range(self.num_kernels_layer1))
+            freeze_param.append(range(self.num_kernels_layer1, self.num_kernels_layer1 + added_kernels_layer1))
             self.num_kernels_layer1 = self.num_kernels_layer1 + added_kernels_layer1
             
 
         if added_kernels_layer2 != 0:
             self.net.conv2.weight.data[0:self.num_kernels_layer2, :, :] = old_net.conv2.weight.data
             freeze_name.append('conv2.weight')
-            freeze_param.append(range(self.num_kernels_layer2))
+            freeze_param.append(range(self.num_kernels_layer2, self.num_kernels_layer2 + added_kernels_layer2))
             self.num_kernels_layer2 = self.num_kernels_layer2 + added_kernels_layer2
         
         if added_kernels_layer3 != 0:
             self.net.conv3.weight.data[0:self.num_kernels_layer3, :, :] = old_net.conv3.weight.data
             freeze_name.append('conv3.weight')
-            freeze_param.append(range(self.num_kernels_layer3))
+            freeze_param.append(range(self.num_kernels_layer3, self.num_kernels_layer3 + added_kernels_layer3))
             self.num_kernels_layer3 = self.num_kernels_layer3 + added_kernels_layer3
             
         self.data.net = self.net.cuda()
