@@ -71,7 +71,7 @@ class CIFAR10_Setup:
         return(loss,optimzer) 
 
     # Function to train the network     
-    def fit_model(self, batch_size, n_epochs, learning_rate, freeze_name = 'conv1.weight', freeze_param = range(0)):
+    def fit_model(self, batch_size, n_epochs, learning_rate, freeze_name = [], freeze_param = []):
         
         #Get training data
         self.train_loader = self.get_train_loader(batch_size)
@@ -118,16 +118,17 @@ class CIFAR10_Setup:
 
                 loss_size.backward() # Find the gradient for each parameter
 
-                '''
-                for name, param in self.net.named_parameters():
-                    print(name, operator.attrgetter(name + '.grad')(self.net))
-                '''
                 
+                for name, params in zip(freeze_name, freeze_param):
+                    print(name + ' before:', operator.attrgetter(name + '.grad')(self.net))
+                    operator.attrgetter(freeze_name + '.grad')(self.net)[freeze_param, :, :] = 0
+                    print(name + ' after:', operator.attrgetter(freeze_name + '.grad')(self.net)) 
+                
+                '''
                 print(operator.attrgetter(freeze_name + '.grad')(self.net))
                 operator.attrgetter(freeze_name + '.grad')(self.net)[freeze_param, :, :] = 0
-                #self.net.['freeze_name'].weight.grad[freeze_param, :, :] = 0
                 print(operator.attrgetter(freeze_name + '.grad')(self.net))
-                
+                '''
                 
                 print("Stop Here \n")
                 exit()

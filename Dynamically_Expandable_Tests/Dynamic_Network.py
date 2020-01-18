@@ -37,7 +37,7 @@ class DynaNet:
 
         self.train()
 
-    def train(self, freeze_name = 'conv1.weight', freeze_param = range(0)):
+    def train(self, freeze_name = [], freeze_param = []):
         # These will train the LeNets 
         print("\n\nCIFAR-10 Training:")
         print("----------------------------------------------------------------")
@@ -55,6 +55,8 @@ class DynaNet:
                      added_kernels_layer3 = 0):
         
         old_net = self.net
+        freeze_name  = []
+        freeze_param = []
 
         self.net = AdjLeNet(num_kernels_layer1= self.num_kernels_layer1 + added_kernels_layer1,
                            num_kernels_layer2= self.num_kernels_layer2 + added_kernels_layer2,
@@ -63,17 +65,18 @@ class DynaNet:
         if added_kernels_layer1 != 0:
             self.net.conv1.weight.data[0:self.num_kernels_layer1, :, :] = old_net.conv1.weight.data
             self.num_kernels_layer1 = self.num_kernels_layer1 + added_kernels_layer1
-        
+            freeze_name.append('conv1.weight')
 
         if added_kernels_layer2 != 0:
             self.net.conv2.weight.data[0:self.num_kernels_layer2, :, :] = old_net.conv2.weight.data
             self.num_kernels_layer2 = self.num_kernels_layer2 + added_kernels_layer2
+            freeze_name.append('conv2.weight')
         
         if added_kernels_layer3 != 0:
             self.net.conv3.weight.data[0:self.num_kernels_layer3, :, :] = old_net.conv3.weight.data
             self.num_kernels_layer3 = self.num_kernels_layer3 + added_kernels_layer3
+            freeze_name.append('conv3.weight')
 
-        self.train()
 
         print("\n\nExpanded Model Dimensions:")
         summary(self.net, input_size=(3, 32, 32), device= "cpu")
