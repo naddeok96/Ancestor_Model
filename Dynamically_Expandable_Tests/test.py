@@ -41,7 +41,7 @@ dyna_net = DynaNet(n_epochs= n_epochs,
                    batch_size = batch_size,
                    learning_rate = learning_rate)
 
-for i in range(6):
+for i in range(1):
 
     if i in [0,1]:
         dyna_net.expand(added_kernels_layer3 = 40)
