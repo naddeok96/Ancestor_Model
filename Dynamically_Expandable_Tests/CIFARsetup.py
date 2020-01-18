@@ -130,8 +130,6 @@ class CIFAR10_Setup:
                 print(operator.attrgetter(freeze_name + '.grad')(self.net))
                 '''
                 
-                print("Stop Here \n")
-                exit()
                 optimizer.step() # Parameter update
                 
                 #Print statistics
