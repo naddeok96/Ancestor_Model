@@ -37,7 +37,7 @@ class DynaNet:
 
         self.data = CIFAR10_Setup(self.net)
 
-        self.train()
+        self.train(n_epochs = self.n_epochs)
 
     def train(self, n_epochs, 
                     freeze_name = [], 
