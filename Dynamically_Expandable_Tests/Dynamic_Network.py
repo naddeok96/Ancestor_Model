@@ -88,7 +88,11 @@ class DynaNet:
             self.num_kernels_layer3 = self.num_kernels_layer3 + added_kernels_layer3
             
         self.data.net = self.net.cuda()
+
         print("n_epochs =  ",  math.floor(self.n_epochs*self.freeze_train_ratio))
+        print("n_epochs =  ",  self.n_epochs)
+        print("freeze_train_ratio =  ",  self.freeze_train_ratio)
+
         self.train(freeze_name = freeze_name, freeze_param = freeze_param, n_epochs = math.floor(self.n_epochs*self.freeze_train_ratio))
         self.train(freeze_name = [], freeze_param = [], n_epochs = self.n_epochs - math.floor(self.n_epochs*self.freeze_train_ratio))
 
