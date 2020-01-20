@@ -39,7 +39,8 @@ dyna_net = DynaNet(n_epochs= n_epochs,
                    num_kernels_layer2 = 6,
                    num_kernels_layer3 = 40,
                    batch_size = batch_size,
-                   learning_rate = learning_rate)
+                   learning_rate = learning_rate,
+                   freeze_train_ratio = 0.5)
 
 for i in range(1):
 
