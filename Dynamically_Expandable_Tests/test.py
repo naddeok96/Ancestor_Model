@@ -15,7 +15,7 @@ start_time = time.time()
 # GPU Setup
 os.environ["CUDA_DEVICE_ORDER"] = "PCI_BUS_ID"
 # For a single device (GPU 2)
-os.environ["CUDA_VISIBLE_DEVICES"] = "6"
+os.environ["CUDA_VISIBLE_DEVICES"] = "0"
 
 # Hyperparameters
 n_epochs = 1
