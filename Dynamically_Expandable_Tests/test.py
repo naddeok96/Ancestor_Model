@@ -18,7 +18,7 @@ os.environ["CUDA_DEVICE_ORDER"] = "PCI_BUS_ID"
 os.environ["CUDA_VISIBLE_DEVICES"] = "0"
 
 # Hyperparameters
-n_epochs = 2
+n_epochs = 100
 batch_size = 128
 learning_rate = 0.01
 print('Number of Epochs: ', n_epochs, 
