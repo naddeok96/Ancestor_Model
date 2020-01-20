@@ -39,7 +39,10 @@ class DynaNet:
 
         self.train()
 
-    def train(self, n_epochs = self.n_epochs, freeze_name = [], freeze_param = []):
+    def train(self, n_epochs, 
+                    freeze_name = [], 
+                    freeze_param = []):
+
         # These will train the LeNets 
         print("\n\nCIFAR-10 Training:")
         print("----------------------------------------------------------------")
