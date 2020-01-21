@@ -47,13 +47,12 @@ class DynaNet:
         # These will train the LeNets 
         print("\n\nCIFAR-10 Training:")
         print("----------------------------------------------------------------")
-        self.val_loss, self.val_acc = self.data.fit_model(batch_size = self.batch_size,
-                                                          n_epochs = n_epochs,
-                                                          learning_rate= self.learning_rate,
-                                                          freeze_name = freeze_name,
-                                                          freeze_param = freeze_param)
-        print("\nValidation Loss:    ",self.val_loss)
-        print("Validation Accuracy:", self.val_acc)
+        self.acc = self.data.fit_model(batch_size = self.batch_size,
+                                        n_epochs = n_epochs,
+                                        learning_rate= self.learning_rate,
+                                        freeze_name = freeze_name,
+                                        freeze_param = freeze_param)
+        print("\nAccuracy:    ",self.acc)
         print("----------------------------------------------------------------")
 
     def expand(self, added_kernels_layer1 = 0,
@@ -91,13 +90,10 @@ class DynaNet:
 
         print("n_epochs =  ",  math.floor(self.n_epochs*self.freeze_train_ratio))
         print("n_epochs =  ",  self.n_epochs)
-        print("freeze_train_ratio =  ",  self.freeze_train_ratio)
+        print("stall ratio =  ",  self.freeze_train_ratio)
 
         self.train(freeze_name = freeze_name, freeze_param = freeze_param, n_epochs = math.floor(self.n_epochs*self.freeze_train_ratio))
         self.train(freeze_name = [], freeze_param = [], n_epochs = self.n_epochs - math.floor(self.n_epochs*self.freeze_train_ratio))
-
-
-
 
         print("\n\nExpanded Model Dimensions:")
         summary(self.net.cpu(), input_size=(3, 32, 32), device= "cpu")

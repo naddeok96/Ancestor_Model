@@ -18,7 +18,7 @@ os.environ["CUDA_DEVICE_ORDER"] = "PCI_BUS_ID"
 os.environ["CUDA_VISIBLE_DEVICES"] = "2"
 
 # Hyperparameters
-n_epochs = 100
+n_epochs = 2
 batch_size = 128
 learning_rate = 0.01
 print('Number of Epochs: ', 7 * n_epochs, 
@@ -42,7 +42,7 @@ dyna_net = DynaNet(n_epochs= n_epochs,
                    learning_rate = learning_rate,
                    freeze_train_ratio = 0.8)
 
-for i in range(6):
+for i in range(1):
 
     if i in [0,1]:
         dyna_net.expand(added_kernels_layer3 = 40)
