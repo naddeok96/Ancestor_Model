@@ -30,8 +30,8 @@ Files already downloaded and verified
 CIFAR-10 Training:
 ----------------------------------------------------------------
 
-Validation Loss:     2.807179758820353
-Validation Accuracy: 0.5
+Validation Loss:     2.8048863742924945
+Validation Accuracy: 0.375
 ----------------------------------------------------------------
 
 Model Setup:  
@@ -62,27 +62,27 @@ Files already downloaded and verified
 CIFAR-10 Training:
 ----------------------------------------------------------------
 
-Validation Loss:     1.612305141702483
+Validation Loss:     1.5797253998020027
+Validation Accuracy: 0.375
+----------------------------------------------------------------
+n_epochs =   80
+n_epochs =   100
+freeze_train_ratio =   0.8
+
+
+CIFAR-10 Training:
+----------------------------------------------------------------
+
+Validation Loss:     2.1790227286423307
 Validation Accuracy: 0.5
 ----------------------------------------------------------------
-n_epochs =   50
-n_epochs =   100
-freeze_train_ratio =   0.5
 
 
 CIFAR-10 Training:
 ----------------------------------------------------------------
 
-Validation Loss:     2.230849767033058
-Validation Accuracy: 0.25
-----------------------------------------------------------------
-
-
-CIFAR-10 Training:
-----------------------------------------------------------------
-
-Validation Loss:     1.5011318273182157
-Validation Accuracy: 0.5625
+Validation Loss:     1.3970620647261414
+Validation Accuracy: 0.375
 ----------------------------------------------------------------
 
 
@@ -107,24 +107,24 @@ Forward/backward pass size (MB): 0.02
 Params size (MB): 0.08
 Estimated Total Size (MB): 0.11
 ----------------------------------------------------------------
-n_epochs =   50
+n_epochs =   80
 n_epochs =   100
-freeze_train_ratio =   0.5
+freeze_train_ratio =   0.8
 
 
 CIFAR-10 Training:
 ----------------------------------------------------------------
 
-Validation Loss:     2.231216795836823
-Validation Accuracy: 0.1875
+Validation Loss:     2.23580232149438
+Validation Accuracy: 0.125
 ----------------------------------------------------------------
 
 
 CIFAR-10 Training:
 ----------------------------------------------------------------
 
-Validation Loss:     1.6086844326574592
-Validation Accuracy: 0.375
+Validation Loss:     1.3882257040542891
+Validation Accuracy: 0.625
 ----------------------------------------------------------------
 
 
@@ -149,23 +149,23 @@ Forward/backward pass size (MB): 0.02
 Params size (MB): 0.11
 Estimated Total Size (MB): 0.15
 ----------------------------------------------------------------
-n_epochs =   50
+n_epochs =   80
 n_epochs =   100
-freeze_train_ratio =   0.5
+freeze_train_ratio =   0.8
 
 
 CIFAR-10 Training:
 ----------------------------------------------------------------
 
-Validation Loss:     2.2790289166607436
-Validation Accuracy: 0.125
+Validation Loss:     2.291984183878838
+Validation Accuracy: 0.1875
 ----------------------------------------------------------------
 
 
 CIFAR-10 Training:
 ----------------------------------------------------------------
 
-Validation Loss:     1.98316996912413
+Validation Loss:     1.3430015316492394
 Validation Accuracy: 0.4375
 ----------------------------------------------------------------
 
@@ -191,24 +191,24 @@ Forward/backward pass size (MB): 0.03
 Params size (MB): 0.18
 Estimated Total Size (MB): 0.22
 ----------------------------------------------------------------
-n_epochs =   50
+n_epochs =   80
 n_epochs =   100
-freeze_train_ratio =   0.5
+freeze_train_ratio =   0.8
 
 
 CIFAR-10 Training:
 ----------------------------------------------------------------
 
-Validation Loss:     2.2885906485062613
-Validation Accuracy: 0.1875
+Validation Loss:     2.298733672009239
+Validation Accuracy: 0.125
 ----------------------------------------------------------------
 
 
 CIFAR-10 Training:
 ----------------------------------------------------------------
 
-Validation Loss:     2.469984504995467
-Validation Accuracy: 0.8125
+Validation Loss:     1.3461057219324233
+Validation Accuracy: 0.5
 ----------------------------------------------------------------
 
 
@@ -233,15 +233,15 @@ Forward/backward pass size (MB): 0.03
 Params size (MB): 0.25
 Estimated Total Size (MB): 0.30
 ----------------------------------------------------------------
-n_epochs =   50
+n_epochs =   80
 n_epochs =   100
-freeze_train_ratio =   0.5
+freeze_train_ratio =   0.8
 
 
 CIFAR-10 Training:
 ----------------------------------------------------------------
 
-Validation Loss:     2.296555896348591
+Validation Loss:     2.3008265585838994
 Validation Accuracy: 0.125
 ----------------------------------------------------------------
 
@@ -249,8 +249,8 @@ Validation Accuracy: 0.125
 CIFAR-10 Training:
 ----------------------------------------------------------------
 
-Validation Loss:     2.5092474478709548
-Validation Accuracy: 0.4375
+Validation Loss:     1.295324349705177
+Validation Accuracy: 0.375
 ----------------------------------------------------------------
 
 
@@ -275,15 +275,15 @@ Forward/backward pass size (MB): 0.05
 Params size (MB): 0.26
 Estimated Total Size (MB): 0.32
 ----------------------------------------------------------------
-n_epochs =   50
+n_epochs =   80
 n_epochs =   100
-freeze_train_ratio =   0.5
+freeze_train_ratio =   0.8
 
 
 CIFAR-10 Training:
 ----------------------------------------------------------------
 
-Validation Loss:     2.2932786579373516
+Validation Loss:     2.297953183137918
 Validation Accuracy: 0.125
 ----------------------------------------------------------------
 
@@ -291,8 +291,8 @@ Validation Accuracy: 0.125
 CIFAR-10 Training:
 ----------------------------------------------------------------
 
-Validation Loss:     2.526385677011707
-Validation Accuracy: 0.625
+Validation Loss:     1.2446878824052932
+Validation Accuracy: 0.9375
 ----------------------------------------------------------------
 
 
@@ -321,12 +321,12 @@ Estimated Total Size (MB): 0.34
 ===============================
 Baseline Results 
 -------------------------------
-Validation Loss:      2.807179758820353
-Validation Accuracy:  0.5
+Validation Loss:      2.8048863742924945
+Validation Accuracy:  0.375
 
 Dynamic Results 
 -------------------------------
-Validation Loss:      2.526385677011707
-Validation Accuracy:  0.625
+Validation Loss:      1.2446878824052932
+Validation Accuracy:  0.9375
 ===============================
---- The experiment took 5917.919291496277 seconds to run ---
+--- The experiment took 6009.133170127869 seconds to run ---
