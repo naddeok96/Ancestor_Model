@@ -15,7 +15,7 @@ start_time = time.time()
 # GPU Setup
 os.environ["CUDA_DEVICE_ORDER"] = "PCI_BUS_ID"
 # For a single device (GPU 2)
-os.environ["CUDA_VISIBLE_DEVICES"] = "0"
+os.environ["CUDA_VISIBLE_DEVICES"] = "2"
 
 # Hyperparameters
 n_epochs = 100
@@ -40,7 +40,7 @@ dyna_net = DynaNet(n_epochs= n_epochs,
                    num_kernels_layer3 = 40,
                    batch_size = batch_size,
                    learning_rate = learning_rate,
-                   freeze_train_ratio = 0.5)
+                   freeze_train_ratio = 0.8)
 
 for i in range(6):
 
