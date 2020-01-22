@@ -36,14 +36,16 @@ class CIFAR10_Setup:
         self.test_loader = torch.utils.data.DataLoader(self.test_set,
                                                        batch_size=100,
                                                        shuffle=False,
-                                                       num_workers=2)
+                                                       num_workers=8,
+                                                       pin_memory=True)
 
     # Fucntion to break training set into batches
     def get_train_loader(self,batch_size):
         train_loader = torch.utils.data.DataLoader(self.train_set,
                                                    batch_size = batch_size,
                                                    shuffle = True,
-                                                   num_workers = 2)
+                                                   num_workers = 8,
+                                                   pin_memory=True)
         return(train_loader)
 
     # Function to train the network     
