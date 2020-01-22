@@ -18,7 +18,7 @@ os.environ["CUDA_DEVICE_ORDER"] = "PCI_BUS_ID"
 os.environ["CUDA_VISIBLE_DEVICES"] = "2"
 
 # Hyperparameters
-n_epochs = 2
+n_epochs = 100
 batch_size = 128
 learning_rate = 0.01
 print('Number of Epochs: ', 7 * n_epochs, 
@@ -27,7 +27,7 @@ print('Number of Epochs: ', 7 * n_epochs,
 
 
 # Train base line network (starting at max size)
-base_net = DynaNet(n_epochs= 7 * n_epochs,
+base_net = DynaNet(n_epochs= 1 * n_epochs,
                    num_kernels_layer2 = 18,
                    batch_size = batch_size,
                    learning_rate = learning_rate)
@@ -56,15 +56,15 @@ for i in range(1):
 print("\n===============================")
 print("Baseline Results ")
 print("-------------------------------")
-print("Validation Loss:     ", base_net.val_loss)
-print("Validation Accuracy: ",base_net.val_acc)
+print("Test Accuracy: ",base_net.acc)
 
 print("\nDynamic Results ")
 print("-------------------------------")
-print("Validation Loss:     ", dyna_net.val_loss)
-print("Validation Accuracy: ",dyna_net.val_acc)
+print("Test Accuracy: ",dyna_net.acc)
 print("===============================")
 
-print("--- The experiment took %s seconds to run ---" % (time.time() - start_time))
+print("\n--- The experiment took %s seconds to run ---" % (round((time.time() - start_time))))
+print("---                     %s minutes to run ---" % (round(((time.time() - start_time)/60))))
+print("---                     %s hours to run ---" % (round(((time.time() - start_time)/3600))))
 
 

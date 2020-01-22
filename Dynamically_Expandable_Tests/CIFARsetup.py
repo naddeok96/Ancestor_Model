@@ -37,8 +37,6 @@ class CIFAR10_Setup:
                                                        batch_size=100,
                                                        shuffle=False,
                                                        num_workers=2)
-                                                
-
 
     # Fucntion to break training set into batches
     def get_train_loader(self,batch_size):
@@ -48,13 +46,6 @@ class CIFAR10_Setup:
                                                    num_workers = 2)
         return(train_loader)
 
-    # Define our loss function and optimazation to use
-    def createLossAndOptimizer(self,net, lr=0.01):
-        loss = torch.nn.CrossEntropyLoss()
-        optimzer = torch.optim.SGD(net.parameters(), lr=lr, momentum= 0.9, weight_decay=0.0001)     
-
-        return(loss,optimzer) 
-
     # Function to train the network     
     def fit_model(self, batch_size, n_epochs, learning_rate, freeze_name = [], freeze_param = []):
         
@@ -63,14 +54,11 @@ class CIFAR10_Setup:
         n_batches = len(self.train_loader)
 
         #Create our loss and optimizer functions
-        loss, optimizer = self.createLossAndOptimizer(self.net, learning_rate)
+        criterion = torch.nn.CrossEntropyLoss()
+        optimizer = torch.optim.SGD(self.net.parameters(), lr=0.01, momentum= 0.9, weight_decay=0.0001) 
 
-    #Loop for n_epochs
-        for epoch in range(n_epochs):
-            
-            running_loss = 0.0
-            total_train_loss = 0
-            
+        #Loop for n_epochs
+        for epoch in range(n_epochs):            
             for i, data in enumerate(self.train_loader, 0):
                 
                 #Reset the train loader and apply a counter
@@ -84,7 +72,7 @@ class CIFAR10_Setup:
                 
                 #Forward pass, backward pass, optimize
                 outputs = self.net(inputs) # Forward pass
-                loss = loss(outputs, labels) # calculate loss
+                loss = criterion(outputs, labels) # calculate loss
                 loss.backward() # Find the gradient for each parameter
 
                 for name, params in zip(freeze_name, freeze_param):
@@ -93,10 +81,6 @@ class CIFAR10_Setup:
                     operator.attrgetter(name + '.grad')(self.net)[params, :, :] = new_grads
 
                 optimizer.step() # Parameter update
-                
-                #Print statistics
-                running_loss += loss_size.item()
-                total_train_loss += loss_size.item()
                 
 
         # At the end of training run a test
@@ -113,5 +97,4 @@ class CIFAR10_Setup:
 
             total_tested += labels.size(0)
             correct += (predicted == labels).sum().item()
-        print("TOTAL TESTED: ", total_tested)
         return (correct/total_tested)

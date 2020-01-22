@@ -52,7 +52,7 @@ class DynaNet:
                                         learning_rate= self.learning_rate,
                                         freeze_name = freeze_name,
                                         freeze_param = freeze_param)
-        print("\nAccuracy:    ",self.acc)
+        print("Accuracy:    ",self.acc)
         print("----------------------------------------------------------------")
 
     def expand(self, added_kernels_layer1 = 0,
